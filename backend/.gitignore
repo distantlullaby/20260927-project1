@@ -1,0 +1,15 @@
+# 编译产物
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 运行时上传文件（种子图片启动时自动重建）
+uploads/
+
+# 日志
+*.log
+
+# 本地环境/IDE
+.idea/
+.vscode/
