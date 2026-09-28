@@ -1,0 +1,9 @@
+# 编译产物
+memoryconnect.exe
+*.exe
+
+# 运行期上传目录（含自动生成的种子插画，启动时会重建）
+uploads/
+
+# 本地环境配置
+.env

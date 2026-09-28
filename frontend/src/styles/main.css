@@ -1,0 +1,239 @@
+:root {
+  --paper: #f6efe3;
+  --paper-deep: #efe4d0;
+  --ink: #4a3c2c;
+  --ink-soft: #8a7a63;
+  --accent: #c2703d;
+  --accent-deep: #a85a2c;
+  --sage: #6f9279;
+  --sage-deep: #557a62;
+  --line: #e0d2b8;
+  --gold: #d9a441;
+  --danger: #c0563f;
+  --card: #fffdf8;
+  --shadow: 0 10px 30px rgba(94, 70, 40, 0.12);
+  --radius: 16px;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(217, 164, 65, 0.12), transparent),
+    radial-gradient(900px 400px at -10% 10%, rgba(111, 146, 121, 0.12), transparent),
+    var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 14px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+}
+button:active {
+  transform: translateY(1px);
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(194, 112, 61, 0.32);
+}
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 6px 18px rgba(194, 112, 61, 0.42);
+}
+.btn-sage {
+  background: linear-gradient(135deg, var(--sage), var(--sage-deep));
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(85, 122, 98, 0.3);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--accent-deep);
+  border: 1.5px solid var(--accent);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(194, 112, 61, 0.08);
+}
+.btn-subtle {
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  background: #fffdf8;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(194, 112, 61, 0.14);
+}
+textarea {
+  resize: vertical;
+  min-height: 84px;
+  line-height: 1.7;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 14px 0 6px;
+  font-weight: 600;
+}
+
+.coin {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: #9a6b1e;
+}
+.coin::before {
+  content: "◉";
+  color: var(--gold);
+  font-size: 15px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-open {
+  background: rgba(111, 146, 121, 0.16);
+  color: var(--sage-deep);
+}
+.badge-settled {
+  background: rgba(217, 164, 65, 0.2);
+  color: #8a6320;
+}
+
+.toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+  animation: toast-in 0.25s ease;
+}
+.toast-error {
+  background: #fdecea;
+  color: var(--danger);
+  border: 1px solid #f3c4bb;
+}
+.toast-success {
+  background: #edf5ef;
+  color: var(--sage-deep);
+  border: 1px solid #c5ddd0;
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(60, 46, 28, 0.45);
+  backdrop-filter: blur(3px);
+  z-index: 900;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 16px;
+  overflow-y: auto;
+}
+.modal {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 560px;
+  padding: 26px;
+  animation: card-in 0.28s ease;
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.modal h3 {
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+.modal .modal-sub {
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.empty {
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 70px 20px;
+}
+.empty .empty-emoji {
+  font-size: 44px;
+  display: block;
+  margin-bottom: 14px;
+  opacity: 0.7;
+}
